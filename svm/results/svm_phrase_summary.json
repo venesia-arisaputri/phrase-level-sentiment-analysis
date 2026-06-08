@@ -1,0 +1,131 @@
+{
+  "phrase_stats": {
+    "total_extracted": 2428,
+    "total_accepted": 2393,
+    "total_rejected": 35
+  },
+  "positive": [
+    {
+      "phrase": "pengiriman cepat",
+      "count": 255,
+      "sentiment": "positif",
+      "pct": 5.5
+    },
+    {
+      "phrase": "packaging aman",
+      "count": 123,
+      "sentiment": "positif",
+      "pct": 2.7
+    },
+    {
+      "phrase": "barang bagus",
+      "count": 82,
+      "sentiment": "positif",
+      "pct": 1.8
+    },
+    {
+      "phrase": "pesan cepat",
+      "count": 68,
+      "sentiment": "positif",
+      "pct": 1.5
+    },
+    {
+      "phrase": "produk bagus",
+      "count": 63,
+      "sentiment": "positif",
+      "pct": 1.4
+    },
+    {
+      "phrase": "proses pesan cepat",
+      "count": 63,
+      "sentiment": "positif",
+      "pct": 1.4
+    },
+    {
+      "phrase": "produk sesuai",
+      "count": 55,
+      "sentiment": "positif",
+      "pct": 1.2
+    },
+    {
+      "phrase": "respon cepat",
+      "count": 49,
+      "sentiment": "positif",
+      "pct": 1.1
+    },
+    {
+      "phrase": "ukur sesuai",
+      "count": 47,
+      "sentiment": "positif",
+      "pct": 1.0
+    },
+    {
+      "phrase": "barang sesuai",
+      "count": 36,
+      "sentiment": "positif",
+      "pct": 0.8
+    }
+  ],
+  "negative": [
+    {
+      "phrase": "barang tidak sesuai",
+      "count": 32,
+      "sentiment": "negatif",
+      "pct": 0.7
+    },
+    {
+      "phrase": "warna tidak sesuai",
+      "count": 12,
+      "sentiment": "negatif",
+      "pct": 0.3
+    },
+    {
+      "phrase": "barang jelek",
+      "count": 11,
+      "sentiment": "negatif",
+      "pct": 0.2
+    },
+    {
+      "phrase": "kecewa sama",
+      "count": 10,
+      "sentiment": "negatif",
+      "pct": 0.2
+    },
+    {
+      "phrase": "kualitas jelek",
+      "count": 8,
+      "sentiment": "negatif",
+      "pct": 0.2
+    },
+    {
+      "phrase": "chargeran jelek",
+      "count": 7,
+      "sentiment": "negatif",
+      "pct": 0.2
+    },
+    {
+      "phrase": "kecewa perdana",
+      "count": 6,
+      "sentiment": "negatif",
+      "pct": 0.1
+    },
+    {
+      "phrase": "barang tidak lengkap",
+      "count": 6,
+      "sentiment": "negatif",
+      "pct": 0.1
+    },
+    {
+      "phrase": "kecewa berat",
+      "count": 6,
+      "sentiment": "negatif",
+      "pct": 0.1
+    },
+    {
+      "phrase": "pesan tidak sesuai",
+      "count": 5,
+      "sentiment": "negatif",
+      "pct": 0.1
+    }
+  ]
+}

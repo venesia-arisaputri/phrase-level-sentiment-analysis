@@ -1,0 +1,131 @@
+{
+  "phrase_stats": {
+    "total_extracted": 5289,
+    "total_accepted": 5289,
+    "total_rejected": 0
+  },
+  "positive": [
+    {
+      "phrase": "pengiriman cepat",
+      "count": 254,
+      "sentiment": "positif",
+      "pct": 5.5
+    },
+    {
+      "phrase": "packaging aman",
+      "count": 123,
+      "sentiment": "positif",
+      "pct": 2.7
+    },
+    {
+      "phrase": "packaging rapi",
+      "count": 95,
+      "sentiment": "positif",
+      "pct": 2.0
+    },
+    {
+      "phrase": "barang bagus",
+      "count": 82,
+      "sentiment": "positif",
+      "pct": 1.8
+    },
+    {
+      "phrase": "pesan cepat",
+      "count": 68,
+      "sentiment": "positif",
+      "pct": 1.5
+    },
+    {
+      "phrase": "produk bagus",
+      "count": 63,
+      "sentiment": "positif",
+      "pct": 1.4
+    },
+    {
+      "phrase": "proses pesan cepat",
+      "count": 63,
+      "sentiment": "positif",
+      "pct": 1.4
+    },
+    {
+      "phrase": "respon cepat",
+      "count": 49,
+      "sentiment": "positif",
+      "pct": 1.1
+    },
+    {
+      "phrase": "produk sesuai",
+      "count": 45,
+      "sentiment": "positif",
+      "pct": 1.0
+    },
+    {
+      "phrase": "harga murah",
+      "count": 44,
+      "sentiment": "positif",
+      "pct": 0.9
+    }
+  ],
+  "negative": [
+    {
+      "phrase": "pengiriman lama",
+      "count": 49,
+      "sentiment": "negatif",
+      "pct": 1.1
+    },
+    {
+      "phrase": "barang rusak",
+      "count": 36,
+      "sentiment": "negatif",
+      "pct": 0.8
+    },
+    {
+      "phrase": "barang tidak sesuai",
+      "count": 32,
+      "sentiment": "negatif",
+      "pct": 0.7
+    },
+    {
+      "phrase": "warna putih",
+      "count": 23,
+      "sentiment": "negatif",
+      "pct": 0.5
+    },
+    {
+      "phrase": "warna hitam",
+      "count": 22,
+      "sentiment": "negatif",
+      "pct": 0.5
+    },
+    {
+      "phrase": "warna biru",
+      "count": 16,
+      "sentiment": "negatif",
+      "pct": 0.3
+    },
+    {
+      "phrase": "kecewa sama",
+      "count": 15,
+      "sentiment": "negatif",
+      "pct": 0.3
+    },
+    {
+      "phrase": "bahan tipis",
+      "count": 14,
+      "sentiment": "negatif",
+      "pct": 0.3
+    },
+    {
+      "phrase": "pengiriman lambat",
+      "count": 13,
+      "sentiment": "negatif",
+      "pct": 0.3
+    },
+    {
+      "phrase": "warna merah",
+      "count": 12,
+      "sentiment": "negatif",
+      "pct": 0.3
+    }
+  ]
+}

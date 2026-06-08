@@ -1,0 +1,8 @@
+__pycache__
+.streamlit/secrets.toml
+.venv
+model_weights/
+naivebayes/results/naive_bayes_lexicon.json
+svm/results/svm_lexicon.json
+lstm/results/lstm_lexicon.json
+indobert/results/indobert_lexicon.json
