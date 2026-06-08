@@ -609,11 +609,56 @@ with tab_file:
 
     uploaded_file = st.file_uploader("Upload reviews file", type=["csv","xlsx","xls","txt"], label_visibility="collapsed", help="CSV, Excel, or plain text. One review per row/line.")
 
+    all_reviews = []
+    if uploaded_file is not None:
+        _ext = uploaded_file.name.rsplit(".", 1)[-1].lower()
+        try:
+            if _ext == "txt":
+                all_reviews = [l.strip() for l in uploaded_file.read().decode("utf-8", errors="ignore").splitlines() if l.strip()]
+            elif _ext == "csv":
+                _raw = uploaded_file.read().decode("utf-8", errors="ignore")
+                uploaded_file.seek(0)
+                import csv as _csv
+                _first_line = _raw.splitlines()[0] if _raw.strip() else ""
+                try:
+                    _csv.Sniffer().sniff(_first_line)
+                    _has_header = _csv.Sniffer().has_header(_raw[:4096])
+                except Exception:
+                    _has_header = False
+                _df = pd.read_csv(
+                    uploaded_file,
+                    header=0 if _has_header else None,
+                    sep=None,
+                    engine="python",
+                    on_bad_lines="skip",
+                    quoting=_csv.QUOTE_MINIMAL,
+                )
+                all_reviews = _df.iloc[:, 0].dropna().astype(str).tolist()
+            else:
+                _df = pd.read_excel(uploaded_file)
+                all_reviews = _df[_df.columns[0]].dropna().astype(str).tolist()
+        except Exception as _e:
+            st.error(f"Could not read file: {_e}")
+            st.stop()
+
     c1, c2 = st.columns([1,1], gap="small")
     with c1:
         selected_model = st.selectbox("Model", options=["Naive Bayes","SVM","LSTM","IndoBERT"], index=3)
     with c2:
         display_limit  = st.selectbox("Display limit", options=["Top 10","Top 20","All"], index=0)
+
+    if all_reviews:
+        total_rows = len(all_reviews)
+        num_rows = st.slider(
+            "Number of rows to analyze",
+            min_value=1,
+            max_value=total_rows,
+            value=total_rows,
+            step=1,
+            help=f"Slide to choose how many of the {total_rows} rows you want to include in the analysis.",
+        )
+    else:
+        num_rows = None
 
     analyze_file_clicked = st.button("Analyze", key="analyze_file")
 
@@ -621,39 +666,11 @@ with tab_file:
         if uploaded_file is None:
             st.warning("Please upload a file before analyzing.")
         else:
-            reviews, ext = [], uploaded_file.name.rsplit(".", 1)[-1].lower()
-            try:
-                if ext == "txt":
-                    reviews = [l.strip() for l in uploaded_file.read().decode("utf-8", errors="ignore").splitlines() if l.strip()]
-                elif ext == "csv":
-                    raw = uploaded_file.read().decode("utf-8", errors="ignore")
-                    uploaded_file.seek(0)
-                    import csv as _csv
-                    first_line = raw.splitlines()[0] if raw.strip() else ""
-                    try:
-                        _csv.Sniffer().sniff(first_line)
-                        has_header = _csv.Sniffer().has_header(raw[:4096])
-                    except Exception:
-                        has_header = False
-                    df = pd.read_csv(
-                        uploaded_file,
-                        header=0 if has_header else None,
-                        sep=None,
-                        engine="python",
-                        on_bad_lines="skip",
-                        quoting=_csv.QUOTE_MINIMAL,
-                    )
-                    reviews = df.iloc[:, 0].dropna().astype(str).tolist()
-                else:
-                    df = pd.read_excel(uploaded_file)
-                    reviews = df[df.columns[0]].dropna().astype(str).tolist()
-            except Exception as e:
-                st.error(f"Could not read file: {e}")
-                st.stop()
-
-            if not reviews:
+            if not all_reviews:
                 st.warning("No reviews found in the uploaded file.")
                 st.stop()
+
+            reviews = all_reviews[:num_rows]
 
             pos_phrases, neg_phrases, sentence_pos, sentence_neg = run_single_model_batch(reviews, selected_model, HF_TOKEN)
 
